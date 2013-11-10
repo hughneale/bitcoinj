@@ -42,17 +42,19 @@
     </mailingList>
   </mailingLists>
 
-  <distributionManagement>
-    <repository>
-        <id>bitcoinj-distribution</id>
-        <url>https://distribution.bitcoinj.googlecode.com/git/releases</url>
-    </repository>
-  </distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <name>Temporary Staging Repository</name>
+            <url>file://${project.build.directory}/mvn-repo</url>
+        </repository>
+    </distributionManagement>
 
-  <scm>
-    <url>http://code.google.com/p/bitcoinj/source/checkout</url>
-  </scm>
-
+    <scm>
+        <connection>scm:git:git://github.com/hughneale/bitcoinj.git</connection>
+        <url>scm:git:git://github.com/hughneale/bitcoinj.git</url>
+        <developerConnection>scm:git:git://github.com/hughneale/bitcoinj.git</developerConnection>
+    </scm>
   <!-- Common build plugin configuration -->
   <build>
         <plugins>
@@ -68,6 +70,33 @@
               <showWarnings>true</showWarnings>
             </configuration>
           </plugin>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.8</version>
+                <configuration>
+                    <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+                    <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+                    <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+                    <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
+                    <includes><include>**/*</include></includes>
+                    <repositoryName>bitcoinj</repositoryName>      <!-- github repo name -->
+                    <repositoryOwner>hughneale</repositoryOwner>    <!-- github username  -->
+                </configuration>
+                <executions>
+                    <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+            </plugin>
     </plugins>
   </build>
 
@@ -138,5 +167,8 @@
     <easymock.version>3.0</easymock.version>
     <junit.version>4.8.2</junit.version>
     <generated.sourceDirectory>gen</generated.sourceDirectory>
+
+      <!-- github server corresponds to entry in ~/.m2/settings.xml -->
+      <github.global.server>github</github.global.server>
   </properties>
 </project>
