@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>com.google</groupId>
-  <artifactId>bitcoinj-parent</artifactId>
+  <artifactId>bitcoinj</artifactId>
   <versioning>
     <versions>
       <version>0.11-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20131110125449</lastUpdated>
+    <lastUpdated>20131110125537</lastUpdated>
   </versioning>
 </metadata>
