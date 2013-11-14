@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.google</groupId>
+  <artifactId>bitcoinj-examples</artifactId>
+  <version>0.11-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20131114.182938</timestamp>
+      <buildNumber>2</buildNumber>
+    </snapshot>
+    <lastUpdated>20131114182938</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>0.11-20131114.182938-2</value>
+        <updated>20131114182938</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.11-20131114.182938-2</value>
+        <updated>20131114182938</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

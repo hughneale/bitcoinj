@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.google</groupId>
+  <artifactId>bitcoinj-examples</artifactId>
+  <versioning>
+    <versions>
+      <version>0.11-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20131114182939</lastUpdated>
+  </versioning>
+</metadata>
